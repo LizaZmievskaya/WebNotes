@@ -1,0 +1,210 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: white;
+}
+
+#text{
+    text-align: center;
+    font-family: gotham, helvetica, arial, sans-serif;
+    font-size: 21px;
+    color: #878787;
+    padding: 200px 20px;
+}
+
+#add{
+    float: right;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    background-image: url(../img/add.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+#delete{
+    position: relative;
+    top: 45px;
+    text-align: center;
+    margin: auto;
+    //background-image: url(../img/add.png);
+    //background-size: cover;
+    width: 60px;
+    height: 60px;
+}
+#add:hover{
+    background-image: url(../img/add_hover.png);
+    cursor: pointer;
+}
+#notes {
+    position: absolute;
+    border-right: 1px solid #e3e3e3;
+    width: 350px;
+    height: 100%;
+}
+
+#scroll {
+    height: 88%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+}
+
+#title {    
+    background-color: #f2f1f1;
+    height: 8%;
+    padding: 15px 20px 10px 24px;
+    font-family: gotham, helvetica, arial, sans-serif;
+    color: #878787;
+    border-bottom: 1px solid #e3e3e3;
+    display: block;
+    text-align: left;
+    vertical-align: top;
+    font-size: 21px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+
+
+
+#center {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#add1 {
+    margin: 0 5px;
+}
+
+#content {
+    position: absolute;
+    margin-left: 350px;
+    width: 1016px;
+    height: 100%;
+}
+
+#stik {
+    height: 300px;
+    margin: 90px 320px;
+}
+
+#new {
+    margin: 30px 300px;
+    font-size: 28px;
+    font-weight: 300;
+    color: #2dbe60;
+    line-height: 32px;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: sans-serif;
+}
+
+#name {
+    position: absolute;
+    margin: 30px 300px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    font: 13.3333px Arial;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #2dbe60;
+    font-weight: 300;
+    height: 32px;
+    font-size: 28px;
+    cursor: auto;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    -webkit-appearance: textfield;
+    -webkit-font-smoothing: antialiased;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 100%
+    font-family: sans-serif;
+}
+
+#main {
+    visibility: collapse;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*#type {
+    color: #c4c4c4;
+    position: absolute;
+    margin: 75px 300px;
+}*/
+
+#enter {    
+    font-family: gotham, helvetica, arial, sans-serif;
+    font-size: 14px;
+    position: absolute;
+    margin: 75px 300px;
+    color: #383838;
+    /*word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;*/
+    width: 800px;
+    height: 500px;
+    border: none;
+    border-top: 1px solid #e3e3e3;
+    
+    /*text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    font: 13.3333px Arial;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 300;
+
+    margin-bottom: 0px;
+    cursor: auto;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    -webkit-appearance: textfield;
+    background: none;
+    outline: none;
+    padding: 0;*/
+}
+
+.button{
+    margin: 5px;
+    font-family: gotham,helvetica,arial,sans-serif;
+    font-size: 11.5pt;
+    width: 90px;
+    height: 30px;
+    background-color: #1da24e;
+    border: #146231;
+    color: aliceblue;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #31bc64;
+}
+#btns {
+    position: absolute;
+    bottom: 30px;
+    right: 250px;
+}
