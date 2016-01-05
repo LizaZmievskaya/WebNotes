@@ -33,8 +33,8 @@
             <input id="enter" type="text" role="presentation">-->
             <textarea name="note_content" id="enter" placeholder="Просто начните печатать текст заметки"></textarea>
             <div id="btns">
-                <input class="button" type="button" value="Отмена">
-                <input name="submit" class="button" type="submit" value="Готово">
+                <input class="button" type="button" value="Отмена" id="cancel">
+                <input name="submit" class="button" type="submit" value="Готово" id="ready">
             </div>
         </form>
     </div>
