@@ -23,6 +23,10 @@ html, body{
     width: 50px;
     height: 50px;
 }
+#add:hover{
+    background-image: url(../img/add_hover.png);
+    cursor: pointer;
+}
 #delete{
     position: relative;
     top: 45px;
@@ -32,10 +36,6 @@ html, body{
     //background-size: cover;
     width: 60px;
     height: 60px;
-}
-#add:hover{
-    background-image: url(../img/add_hover.png);
-    cursor: pointer;
 }
 #notes {
     position: absolute;
@@ -91,7 +91,7 @@ html, body{
 }
 
 #new {
-    margin: 30px 300px;
+    margin: 30px 40px;
     font-size: 28px;
     font-weight: 300;
     color: #2dbe60;
@@ -104,11 +104,12 @@ html, body{
     top: 0;
     left: 0;
     font-family: sans-serif;
+    width: 800px;
 }
 
 #name {
     position: absolute;
-    margin: 30px 300px;
+    margin: 30px 40px;
     text-rendering: auto;
     letter-spacing: normal;
     word-spacing: normal;
@@ -134,7 +135,7 @@ html, body{
     border: none;
     outline: none;
     padding: 0;
-    width: 100%
+    width: 800px;
     font-family: sans-serif;
 }
 
@@ -145,48 +146,17 @@ html, body{
     height: 100%;
 }
 
-/*#type {
-    color: #c4c4c4;
-    position: absolute;
-    margin: 75px 300px;
-}*/
 
 #enter {    
     font-family: gotham, helvetica, arial, sans-serif;
     font-size: 14px;
     position: absolute;
-    margin: 75px 300px;
+    margin: 75px 40px;
     color: #383838;
-    /*word-wrap: break-word;
-    overflow-wrap: break-word;
-    -webkit-font-smoothing: antialiased;*/
     width: 800px;
     height: 500px;
     border: none;
     border-top: 1px solid #e3e3e3;
-    
-    /*text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    font: 13.3333px Arial;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: 300;
-
-    margin-bottom: 0px;
-    cursor: auto;
-    -webkit-rtl-ordering: logical;
-    -webkit-user-select: text;
-    -webkit-appearance: textfield;
-    background: none;
-    outline: none;
-    padding: 0;*/
 }
 
 .button{
@@ -206,5 +176,35 @@ html, body{
 #btns {
     position: absolute;
     bottom: 30px;
-    right: 250px;
+    right: 170px;
+}
+
+
+.left_notes{
+    display: block;
+    cursor: pointer;
+    text-align: left;
+    color: #878787;
+    height: 120px;
+    padding: 20px;
+}
+
+.left_notes:hover{
+    color: #ffffff;
+    background-color: rgba(43,181,92,.9);
+    transition: opacity .1s ease-in-out;
+}
+
+#logout{
+    float: right;
+    text-align: center;
+    margin: 13px 30px;
+    background-image: url(../img/logout.png);
+    background-size: cover;
+    width: 55px;
+    height: 55px;
+}
+#logout:hover{
+    background-image: url(../img/logout_hover.png);
+    cursor: pointer;
 }

@@ -1,13 +1,3 @@
-/*$(document).ready(function() {
-	$('#add').click(function() {
-		var $lefty = $('#notes');
-
-		$lefty.animate({
-			left: parseInt($lefty.css('left'),10) == 0 ? -$lefty.outerWidth() : 0
-		});
-	});
-});*/
-
 $(document).ready(function() {
 	$('#add').click(function() {
         $('#notes').animate({left: "-100%"});
@@ -34,13 +24,37 @@ $('#name').focus(function(){
     $('#new').css("display","none");
 });
 
-/*var count_click = 0;
-function Add(){  
+
+function get_cookie ( cookie_name )
+{
+  var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
+  if ( results )
+    return ( unescape ( results[2] ) );
+  else
+    return null;
+}
+var count_click = 0;
+//$(document).ready(
+    function Add() {    
     count_click++;
     var parent = document.getElementById('scroll');  
     var div = document.createElement('div'); 
-    div = parent.appendChild(div);  
-    div.innerHTML = 'Hello World!'; 
+    //var a = get_cookie('name');
+    div = parent.appendChild(div);
+    //$.session.set('counter',0);
+    div.innerHTML = $('#enter').val(); 
     $(div).attr('id','note'+count_click);
     $(div).addClass('left_notes');
-}*/ 
+    $('#text').css("display","none");
+}//);
+
+/*$('#myForm').onsubmit(function(){
+    //e.preventDefault();
+    var form_data = $('#myForm').serializeArray;
+   
+    $.ajax({
+      url: "notes.php",
+      type: "POST",
+      data: form_data      
+    });
+});*/
