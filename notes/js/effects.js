@@ -25,14 +25,15 @@ $('#name').focus(function(){
 });
 
 
-function get_cookie ( cookie_name )
+/*function get_cookie ( cookie_name )
 {
   var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
   if ( results )
     return ( unescape ( results[2] ) );
   else
     return null;
-}
+}*/
+
 var count_click = 0;
 //$(document).ready(
     function Add() {    
@@ -42,19 +43,21 @@ var count_click = 0;
     //var a = get_cookie('name');
     div = parent.appendChild(div);
     //$.session.set('counter',0);
-    div.innerHTML = $('#enter').val(); 
+    div.innerHTML = $('#name').val() + '</br>' + $('#enter').val();
+        //$('#name').val('');
     $(div).attr('id','note'+count_click);
     $(div).addClass('left_notes');
     $('#text').css("display","none");
 }//);
 
-/*$('#myForm').onsubmit(function(){
-    //e.preventDefault();
-    var form_data = $('#myForm').serializeArray;
-   
-    $.ajax({
-      url: "notes.php",
-      type: "POST",
-      data: form_data      
-    });
-});*/
+
+$('input[name="save"]').on('click',function (){
+     var name = $('input[name="name"]').val();
+     var content = $('textarea[name="content"]').val();
+     $.ajax({
+         url:'save.php',
+         method:'POST',
+         data:'name='+name+'&'+'content='+content,
+         type: 'Json'
+     });
+});

@@ -199,10 +199,12 @@ html, body{
     float: right;
     text-align: center;
     margin: 13px 30px;
+    background-color: white;
+    border: 0;
+    width: 55px;
+    height: 55px;    
     background-image: url(../img/logout.png);
     background-size: cover;
-    width: 55px;
-    height: 55px;
 }
 #logout:hover{
     background-image: url(../img/logout_hover.png);
