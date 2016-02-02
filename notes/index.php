@@ -1,10 +1,5 @@
 <?php
     session_start();
-    
-    //$_SESSION['counter']=0;
-    
-    //setcookie('name'); //название заметки
-    //setcookie('content'); //текст заметки
 
     $connect = mysql_connect('localhost','root','') or die(mysql_error());
     mysql_select_db('notes');
@@ -19,18 +14,10 @@
         $user_id = $user_data['id_users'];
         $_SESSION['user_id'] = $user_id;
         
-        //setcookie('user_id',$user_id); //id пользователя
-        
         if($user_data['password'] == $password){
-            //echo $user_id;
-            //include('notes.php');
-            //$check = true;
-            //echo (file_get_contents('notes.php'));
             header('Location: notes.php');
         }
-        else {echo "Wrong password or login";} //сделать норм уведомление, красненькое
-        
-        //mysql_query("INSERT INTO note VALUES ('','','','$user_id')") or die(mysql_error());        
+        else {echo "Wrong password or login";} //СДЕЛАТЬ НОРМ УВЕДОМЛЕНИЕ!!!             
     }
 ?>
 

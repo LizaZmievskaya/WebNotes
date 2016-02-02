@@ -4,30 +4,20 @@
     $name = $_POST['name'];
     $content = $_POST['content'];
     $user_id = $_SESSION['user_id'];
-    //$_SESSION['counter']=0;
 
     $connect = mysql_connect('localhost','root','') or die(mysql_error());
     mysql_select_db('notes');
-    
-    //if (isset($_POST['submit'])){
-       
-        //$_SESSION['counter']++;
         
-        //$user_id = $_COOKIE['user_id'];
-        
-        setcookie('name',$name); //название заметки
-        setcookie('content',$content); //текст заметки
-        //$_COOKIE['name']=$name;
-        //$_COOKIE['content']=$content;
-        
-        $_SESSION['name'] = $name;
-        $_SESSION['content'] = $content;
-        mysql_query("SET NAMES utf8");
-        mysql_query("INSERT INTO note VALUES ('','$name','$content','$user_id')") or die(mysql_error());
+          
+    //$_SESSION['name'] = $name;
+    //$_SESSION['content'] = $content;
 
-        //$counter = $_SESSION['counter'];
-        //echo $counter;
+    mysql_query("SET NAMES utf8");
         
-        //echo("<script>$('note1').html('$name'.'/n'.'$content')</script>");
-   //}  
+    mysql_query("INSERT INTO note VALUES ('','$name','$content','$user_id')");
+    $record=mysql_fetch_array(mysql_query("SELECT * FROM note WHERE (id_users=". $user_id .") AND (content=\"". $content ."\")"));
+    echo json_encode($record);
+    
+    die;
+        
 ?>

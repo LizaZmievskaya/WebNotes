@@ -8,14 +8,11 @@ $(document).ready(function() {
     $('#cancel').click(function() {
         $('#notes').animate({left: "0px"});
         $('#main').css("visibility","hidden");
-        //$('#content').css("visibility","visible");
 	});
     
     $('#ready').click(function() {
         $('#notes').animate({left: "0px"});
         $('#main').animate({left: "100px"});
-        //$('#main').css("visibility","hidden");
-        //$('#content').css("visibility","visible");
 	});
 });
 
@@ -24,32 +21,16 @@ $('#name').focus(function(){
     $('#new').css("display","none");
 });
 
+$('#name').focusout(function(){
+    var name_val = $('#name').val();
+    if (name_val==''){        
+        $('#new').css("display","block");
+    }
+});
 
-/*function get_cookie ( cookie_name )
-{
-  var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
-  if ( results )
-    return ( unescape ( results[2] ) );
-  else
-    return null;
-}*/
+ 
 
-var count_click = 0;
-//$(document).ready(
-    function Add() {    
-    count_click++;
-    var parent = document.getElementById('scroll');  
-    var div = document.createElement('div'); 
-    //var a = get_cookie('name');
-    div = parent.appendChild(div);
-    //$.session.set('counter',0);
-    div.innerHTML = $('#name').val() + '</br>' + $('#enter').val();
-        //$('#name').val('');
-    $(div).attr('id','note'+count_click);
-    $(div).addClass('left_notes');
-    $('#text').css("display","none");
-}//);
-
+var parent = document.getElementById('scroll');
 
 $('input[name="save"]').on('click',function (){
      var name = $('input[name="name"]').val();
@@ -58,6 +39,83 @@ $('input[name="save"]').on('click',function (){
          url:'save.php',
          method:'POST',
          data:'name='+name+'&'+'content='+content,
-         type: 'Json'
+         type: 'Json',
+         success: function(data){
+             data = jQuery.parseJSON(data);
+             var div = document.createElement('div');
+             var name = document.createElement('div');
+             var content = document.createElement('div');
+             div = parent.appendChild(div);
+             name.innerHTML = data.name;
+             content.innerHTML = data.content;
+             div.appendChild(name);
+             div.appendChild(content);
+             div.setAttribute('data-id',data.id_note);
+             $(div).addClass('left_notes');
+             $('#text').css("display","none");
+         }
      });
+    
+    $('#name').val('');
+    $('#new').css("display","block");
+    $('#enter').val('');
 });
+
+$('input[name="delete"]').on('click',function (){
+    var act = $('#scroll').find('.active');
+    var id = act.data('id');
+    $.ajax({
+        url:'delete.php',
+        method:'POST',
+        data: 'id_note='+id,
+        type: 'Json',
+        success: function(data){
+            data = jQuery.parseJSON(data);
+            if(data.status=='success'){                
+                act.remove();
+                var childs = parent.getElementsByClassName('left_notes');
+                if(childs.length==0){
+                    $('#text').css("display","block");
+                }
+            }
+        }
+    });
+});
+
+$(document).on('click','.left_notes',function(){
+    $('#scroll').find('.active').removeClass('active');
+    $(this).addClass('active');
+    var name = $(this).find('div:first').text();
+    var content = $(this).find('div:last').text();
+    $('input[name="name"]').val(name);
+    $('textarea[name="content"]').val(content);
+    $('#new').css("display","none");
+});
+
+
+$('input[name=edit]').on('click',function(){
+    var name = $('input[name=name]').val();
+    var content = $('textarea[name=content]').val();
+    var id = $('#scroll').find('.active').data('id');
+    $.ajax({
+        url:'edit.php',
+        method:'POST',
+        data:'name='+name+'&'+'content='+content+'&'+'id_note='+id,
+        type:'Json',
+        success:function(data){
+            data = jQuery.parseJSON(data);
+            if(data.status=='success'){    
+                $('#scroll').find('.active').empty();
+                $('#scroll').find('.active').append("<div>" + name + "</div><div>" + content + "</div>");
+                $('#name').val('');
+                $('#new').css("display","block");
+                $('#enter').val('');
+            }
+        }
+    });
+});
+
+var childs = parent.getElementsByClassName('left_notes');
+if(childs.length==0){
+    $('#text').css("display","block");
+}
