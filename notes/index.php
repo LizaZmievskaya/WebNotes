@@ -17,7 +17,7 @@
         if($user_data['password'] == $password){
             header('Location: notes.php');
         }
-        else {echo "Wrong password or login";} //СДЕЛАТЬ НОРМ УВЕДОМЛЕНИЕ!!!             
+        else {echo "<div class=\"error\">Неверное имя пользователя или пароль.</div>";}          
     }
 ?>
 
@@ -27,6 +27,7 @@
 <head>
     <title>Notes</title>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/note.png">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 

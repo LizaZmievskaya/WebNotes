@@ -8,6 +8,7 @@
         $password = md5($password);
        
         $query = mysql_query("INSERT INTO users VALUES ('','$login','$password')") or die(mysql_error());
+        echo "<div class=\"success\">Вы успешно зарегистрированы.<br>Нажмите \"Войти\" для авторизации.</div>";
     }
 ?>
 
@@ -17,6 +18,7 @@
 <head>
     <title>Notes</title>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/note.png">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 

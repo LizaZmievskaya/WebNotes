@@ -1,16 +1,13 @@
 <?php 
     session_start();
-
+    var_dump($_POST);
     $name = $_POST['name'];
     $content = $_POST['content'];
     $user_id = $_SESSION['user_id'];
+    $file = $_POST['attach'];
 
     $connect = mysql_connect('localhost','root','') or die(mysql_error());
     mysql_select_db('notes');
-        
-          
-    //$_SESSION['name'] = $name;
-    //$_SESSION['content'] = $content;
 
     mysql_query("SET NAMES utf8");
         

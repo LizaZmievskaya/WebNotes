@@ -119,3 +119,22 @@ var childs = parent.getElementsByClassName('left_notes');
 if(childs.length==0){
     $('#text').css("display","block");
 }
+
+$('input[name=accept]').on('click',function(){
+    var color = $('input[type=color]').val();   
+    var id = $('#scroll').find('.active').data('id');
+    $.ajax({
+        url:'color.php',
+        method:'POST',
+        data:'color=' + color + '&' + 'id_note=' + id,
+        type:'Json',
+        success:function(data){
+            data = jQuery.parseJSON(data);            
+            if(data.status=='success'){
+                 $('#scroll').find('.active').css('background-color',color);
+                console.log(data);
+            }
+        }
+    });
+});
+
